@@ -11,7 +11,13 @@ class ApiService {
     try {
       final response = await http.get(
         Uri.parse(
-            '$_baseUrl/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false'),
+          '$_baseUrl/coins/markets'
+          '?vs_currency=usd'
+          '&order=market_cap_desc'
+          '&per_page=10'
+          '&page=1'
+          '&sparkline=true'
+        ),
       );
 
       if (response.statusCode == 200) {

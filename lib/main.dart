@@ -56,9 +56,9 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: RefreshIndicator(
+      body: RefreshIndicator
+        (
         onRefresh: () => context.read<CoinListCubit>().getCoins(),
-        
         child: BlocBuilder<CoinListCubit, CoinListState>(
           builder: (context, state) {
             return switch (state) {
