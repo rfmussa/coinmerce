@@ -10,9 +10,11 @@ class CoinModel with _$CoinModel {
     required String symbol,
     required String name,
     required String image,
+    @JsonKey(name: 'current_price', defaultValue: 0.0)
     required double currentPrice,
+    @JsonKey(name: 'market_cap_rank', defaultValue: 0)
     required int marketCapRank,
-    @JsonKey(name: 'price_change_percentage_24h')
+    @JsonKey(name: 'price_change_percentage_24h', defaultValue: 0.0)
     required double dailyPriceChange,
   }) = _CoinModel;
 
