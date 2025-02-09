@@ -1,6 +1,6 @@
+import 'package:coinmerce/models/coin_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../models/coin_model.dart';
 
 part 'coin_state.freezed.dart';
 

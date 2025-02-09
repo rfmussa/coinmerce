@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:coinmerce/models/coin_model.dart';
 import 'package:http/http.dart' as http;
 
-import '../models/coin_model.dart';
 
 class ApiService {
   static const String _baseUrl = 'https://api.coingecko.com/api/v3';

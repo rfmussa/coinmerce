@@ -1,8 +1,6 @@
+import 'package:coinmerce/models/coin_model.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-
-import '../models/coin_model.dart';
-import '../extensions/double_extension.dart';
 
 class CoinListItem extends StatelessWidget {
   final CoinModel coin;
@@ -59,7 +57,7 @@ class CoinListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      '\$${coin.currentPrice.toStringAsFixed(2)}',
+                      coin.currentPrice.toPriceString(),
                       style: textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -74,9 +72,7 @@ class CoinListItem extends StatelessWidget {
                             vertical: 4,
                           ),
                           decoration: BoxDecoration(
-                            color:
-                            priceChangeColor
-                                    .withOpacity(0.1),
+                            color: priceChangeColor.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Row(
@@ -116,7 +112,10 @@ class CoinListItem extends StatelessWidget {
                   lineBarsData: [
                     LineChartBarData(
                       spots: coin.sparklinePrices.asMap().entries.map((e) {
-                        return FlSpot(e.key.toDouble(), e.value);
+                        return FlSpot(
+                          e.key.toDouble(),
+                          double.parse(e.value.toStringAsFixed(5)),
+                        );
                       }).toList(),
                       isCurved: true,
                       color: priceChangeColor,
@@ -124,8 +123,7 @@ class CoinListItem extends StatelessWidget {
                       dotData: const FlDotData(show: false),
                       belowBarData: BarAreaData(
                         show: true,
-                        color: priceChangeColor
-                            .withOpacity(0.1),
+                        color: priceChangeColor.withOpacity(0.1),
                       ),
                     ),
                   ],
@@ -145,5 +143,16 @@ class CoinListItem extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+extension DoubleExtension on double {
+  String toPercentageString() {
+    final sign = this >= 0 ? '+' : '';
+    return '$sign${toStringAsFixed(2)}%';
+  }
+
+  String toPriceString() {
+    return '\$${toStringAsFixed(2)}';
   }
 }

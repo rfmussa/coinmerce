@@ -1,5 +1,5 @@
+import 'package:coinmerce/services/api_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../services/api_service.dart';
 import 'coin_list_state.dart';
 
 class CoinListCubit extends Cubit<CoinListState> {

@@ -26,6 +26,7 @@ void main() {
         currentPrice: faker.randomGenerator.decimal(),
         marketCapRank: faker.randomGenerator.integer(100),
         dailyPriceChange: faker.randomGenerator.decimal(),
+    sparklinePrices: List.generate(7, (_) => faker.randomGenerator.decimal()),
       );
 
   group('CoinListCubit', () {
