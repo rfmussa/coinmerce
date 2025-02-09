@@ -6,33 +6,11 @@ A Flutter application that displays real-time cryptocurrency data using the Coin
 ![Light Mode](screenshots/light_mode.png)
 
 ## Features Implemented
-
-From the original requirements:
-- ✅ Display top 10 cryptocurrencies by market cap
-  - Real-time data from CoinGecko
-  - Price and 24h change
-  - 7-day price chart visualization
-  - Pull-to-refresh functionality
-- ✅ Clean Architecture
-  - BLoC pattern using Cubit
-  - Separation of concerns (services, models, widgets)
-  - Freezed for immutable state
-- ✅ Error Handling
-  - User-friendly error messages
-  - Retry mechanism
-  - Loading states
-- ✅ UI/UX
-  - Material Design 3
-  - Dark/Light theme support
-  - Responsive layout
-  - Custom chart styling
-
-## Technical Details
-- State Management: flutter_bloc
-- API Integration: http
-- Code Generation: freezed
-- Charts: fl_chart
-- Typography: google_fonts
+- Display top 10 cryptocurrencies sorted by market cap
+- Pull to refresh functionality
+- 7-day price chart for each listed coin
+- Theme toggle (light/dark mode)
+- Test Coverage (only for the cubit due to time constraints)
 
 ## Potential Improvements
 
@@ -40,10 +18,6 @@ From the original requirements:
 - Add searchbar to filter coins
 - More robust error handling with different error types
 - Add UI tests and golden tests
-- Add caching for offline support
-- Implement price alerts
-- Add detailed coin view
-- Add sorting options
 
 ### Installation
 
